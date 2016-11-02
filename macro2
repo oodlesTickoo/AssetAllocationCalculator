@@ -1,0 +1,61 @@
+Rem Attribute VBA_ModuleType=VBAModule
+Option VBASupport 1
+Sub Calculation()
+
+Dim x As Integer
+Dim i As Integer
+Dim y As Double
+Dim weigh As Range
+Dim k As String
+Dim t As String
+Dim tick As ListBox
+
+
+ThisWorkbook.Sheets("Worksheet").Activate
+
+
+
+x = InputBox(Prompt:="How many assets you have chosen from the list?", Title:="Question")
+
+For i = 1 To x
+Cells(12 + i, 1).Value = "Asset" & i
+Next i
+
+t = MsgBox("Do you want to proceed with the current selection?", vbYesNo)
+If vbYes Then
+ElseIf vbNo Then
+MsgBox ("Please reselect the asset!")
+Exit Sub
+End If
+
+retry:
+For i = 1 To x
+Cells(12 + i, 3).Value = InputBox("What is the weight% of " & Cells(12 + i, 2).Value & " in your portfolio?")
+Next i
+
+Set Weight = Range("c13:c21")
+y = Application.WorksheetFunction.Sum(Weight)
+
+If y <> 100 Then
+k = MsgBox("Please re-enter the weight of each investment", vbYesNo)
+
+    Select Case k
+    
+    Case vbYes
+    GoTo retry
+    
+    Case vbNo
+    Exit Sub
+    
+    End Select
+
+Else
+End If
+
+Dim s As Double
+s = Range("F13")
+w = FormatPercent(s, 2)
+MsgBox ("The expected return of your portfolio is " & w)
+
+
+End Subn
