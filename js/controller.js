@@ -429,6 +429,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
         $scope.chartOneOpen = false;
         document.getElementById("container").style.display = "none";
         document.getElementById("containerA").style.display = "block";
+        // document.getElementById("containerA").style.width = "582px";
     });
 
     $(".print-doc").on("click", printBothCharts);

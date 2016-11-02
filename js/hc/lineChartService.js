@@ -42,7 +42,6 @@ app.service('LineChartService', function() {
                     align: 'left',
                     verticalAlign: 'bottom',
                     borderWidth: 0,
-                    width: 582,
                     x: 12
                 },
 
@@ -118,7 +117,6 @@ app.service('LineChartService', function() {
                     align: 'left',
                     verticalAlign: 'bottom',
                     borderWidth: 0,
-                    width: 582,
                     x: 12
                 },
                 series: [{
