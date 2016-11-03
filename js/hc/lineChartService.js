@@ -3,6 +3,8 @@ app.service('LineChartService', function() {
         if (flag) {
             $('#container').highcharts({
                 chart: {
+                    type: 'spline',
+                    height: 400,
                     events: {
                         beforePrint: function() {
                             this.oldhasUserSize = this.hasUserSize;
@@ -90,6 +92,8 @@ app.service('LineChartService', function() {
         } else {
             $('#containerA').highcharts({
                 chart: {
+                    type: 'spline',
+                    height: 400,
                     events: {
                         beforePrint: function() {
                             this.oldhasUserSize = this.hasUserSize;

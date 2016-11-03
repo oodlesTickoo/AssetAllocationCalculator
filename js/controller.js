@@ -422,19 +422,22 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
     document.getElementById("bar-chart").addEventListener("click", function() {
 
         $scope.chartOneOpen = true;
+        $("#containerA").highcharts().reflow();
+
         document.getElementById("containerA").style.display = "none";
         document.getElementById("container").style.display = "block";
-        $("#containerA").highcharts().reflow();
-        
+
         $("#container").highcharts().reflow();
     });
 
     document.getElementById("area-chart").addEventListener("click", function() {
+
         $scope.chartOneOpen = false;
+        $("#container").highcharts().reflow();
+
         document.getElementById("container").style.display = "none";
         document.getElementById("containerA").style.display = "block";
 
-        $("#container").highcharts().reflow();
 
         $("#containerA").highcharts().reflow();
     });
@@ -460,7 +463,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
                 window.print();
                 setTimeout(function() {
                     document.getElementById("containerA").style.display = "none";
-                }, 100);
+                }, 200);
             } else {
                 document.getElementById("container").style.display = "block";
 
@@ -473,7 +476,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
                 window.print();
                 setTimeout(function() {
                     document.getElementById("container").style.display = "none";
-                }, 100);
+                }, 200);
             }
         } else {
             $("#myModal").modal('show');
