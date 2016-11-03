@@ -153,6 +153,19 @@ app.service('LineChartService', function() {
             });
 
         }
+        $(window).resize(function() {
+            if($(window).width()>400){
+                width=582;
+                height=378;
+            }else{
+                width=288;
+                height=450;                
+            }
+            /*height = $(window).height();
+            width = $(window).width();*/
+            $("#container").highcharts().setSize(width, height, doAnimation = true);
+            $("#containerA").highcharts().setSize(width, height, doAnimation = true);
+        });
 
     }
 });
