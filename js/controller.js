@@ -327,9 +327,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
                 bonds7 = [],
                 bonds8 = [],
                 bonds9 = [];
-                bonds10 = [];
+            bonds10 = [];
 
-                var result1 = [],
+            var result1 = [],
                 result2 = [],
                 result3 = [],
                 result4 = [],
@@ -338,22 +338,22 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
                 result7 = [],
                 result8 = [],
                 result9 = [];
-                result10 = [];
-                result11 = [];
-                result12 = [];
-                result13 = [];
-                result14 = [];
-                result15 = [];
-                result16 = [];
-                result17 = [];
-                result18 = [];
-                result19 = [];
+            result10 = [];
+            result11 = [];
+            result12 = [];
+            result13 = [];
+            result14 = [];
+            result15 = [];
+            result16 = [];
+            result17 = [];
+            result18 = [];
+            result19 = [];
 
-                var dateArray=[];
+            var dateArray = [];
 
             var bondsArray = [bonds1, bonds2, bonds3, bonds4, bonds5, bonds6, bonds7, bonds8, bonds9, bonds10],
                 yearArray = [year91, year92, year93, year94, year95, year96, year97, year98, year99, year00, year01, year02, year03, year04, year05, year06, year07, year08, year09, year10, year11, year12, year13, year14, year15, year16],
-                porfolioArray = [portfolio1, portfolio2, portfolio3, portfolio4, portfolio5, portfolio6, portfolio7, portfolio8,portfolio9,portfolio10],
+                porfolioArray = [portfolio1, portfolio2, portfolio3, portfolio4, portfolio5, portfolio6, portfolio7, portfolio8, portfolio9, portfolio10],
                 resultArray = [result1, result2, result3, result4, result5, result6, result7, result8, result9, result10, result11, result12, result13, result14, result15, result16, result17, result18, result19],
                 investmentsArray = [investments1, investments2, investments3, investments4, investments5, investments6, investments7, investments8, investments9];
 
@@ -378,19 +378,19 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
                 }
             }
 
-            for(var j = 0; j < investmentsArray[0].length; j++ ){
-                dateArray[j]=1991+j;
+            for (var j = 0; j < investmentsArray[0].length; j++) {
+                dateArray[j] = 1991 + j;
             }
 
-            console.log("bondsArray",bondsArray);
-            console.log("yearArray",yearArray);
-            console.log("porfolioArray",porfolioArray);
-            console.log("resultArray",resultArray);
-            console.log("investmentsArray",investmentsArray);
-            console.log("investmentsAndBondsArray",investmentsAndBondsArray);
+/*            console.log("bondsArray", bondsArray);
+            console.log("yearArray", yearArray);
+            console.log("porfolioArray", porfolioArray);
+            console.log("resultArray", resultArray);
+            console.log("investmentsArray", investmentsArray);
+            console.log("investmentsAndBondsArray", investmentsAndBondsArray);*/
 
-            LineChartService.createChart(dateArray, resultArray,true);
-            LineChartService.createChart(dateArray, resultArray,false);
+            LineChartService.createChart(dateArray, resultArray, true);
+            LineChartService.createChart(dateArray, resultArray, false);
 
 
         } else {
@@ -409,46 +409,74 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
                 lastName: $scope.personalDetails.lastName,
                 email: $scope.personalDetails.email,
                 mobile: $scope.personalDetails.mobile,
-                postalCode: $scope.personalDetails.postalCode,          
-                initialInvestmentAmount: Number($scope.initialInvestmentAmount.replaceAll('$', '').replaceAll(',', '')),         
+                postalCode: $scope.personalDetails.postalCode,
+                initialInvestmentAmount: Number($scope.initialInvestmentAmount.replaceAll('$', '').replaceAll(',', '')),
             }
 
-             PdfMaker.createChart(normalDetails);
+            PdfMaker.createChart(normalDetails);
         } else {
             $("#myModal").modal('show');
         }
     });
 
     document.getElementById("bar-chart").addEventListener("click", function() {
+
         $scope.chartOneOpen = true;
+        $("#containerA").highcharts().reflow();
+
         document.getElementById("containerA").style.display = "none";
         document.getElementById("container").style.display = "block";
+
+        $("#container").highcharts().reflow();
     });
 
     document.getElementById("area-chart").addEventListener("click", function() {
+
         $scope.chartOneOpen = false;
+        $("#container").highcharts().reflow();
+
         document.getElementById("container").style.display = "none";
         document.getElementById("containerA").style.display = "block";
-        // document.getElementById("containerA").style.width = "582px";
+
+
+        $("#containerA").highcharts().reflow();
     });
 
     $(".print-doc").on("click", printBothCharts);
 
     function printBothCharts() {
         if ($scope.forms.ttrForm.$valid) {
+            var printUpdate = function() {
+                $('#container').highcharts().reflow();
+                $("#containerA").highcharts().reflow();
+            };
 
             if ($scope.chartOneOpen) {
                 document.getElementById("containerA").style.display = "block";
+
+                if (window.matchMedia) {
+                    var mediaQueryList = window.matchMedia('print');
+                    mediaQueryList.addListener(function(mql) {
+                        printUpdate();
+                    });
+                }
                 window.print();
                 setTimeout(function() {
                     document.getElementById("containerA").style.display = "none";
-                }, 100);
+                }, 200);
             } else {
                 document.getElementById("container").style.display = "block";
+
+                if (window.matchMedia) {
+                    var mediaQueryList = window.matchMedia('print');
+                    mediaQueryList.addListener(function(mql) {
+                        printUpdate();
+                    });
+                }
                 window.print();
                 setTimeout(function() {
                     document.getElementById("container").style.display = "none";
-                }, 100);
+                }, 200);
             }
         } else {
             $("#myModal").modal('show');

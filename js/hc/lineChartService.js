@@ -2,10 +2,24 @@ app.service('LineChartService', function() {
     this.createChart = function(dateArray, resultArray, flag) {
         if (flag) {
             $('#container').highcharts({
+                chart: {
+                    type: 'spline',
+                    height: 400,
+                    events: {
+                        beforePrint: function() {
+                            this.oldhasUserSize = this.hasUserSize;
+                            this.resetParams = [this.chartWidth, this.chartHeight, false];
+                            this.setSize(600, 400, false);
+                        },
+                        afterPrint: function() {
+                            this.setSize.apply(this, this.resetParams);
+                            this.hasUserSize = this.oldhasUserSize;
+                        }
+                    }
+                },
                 title: {
                     text: 'Single Asset Performance 1991-2016',
-                    margin: 30,
-                    x: -20 //center
+                    margin:30
                 },
                 xAxis: {
                     categories: dateArray
@@ -77,10 +91,24 @@ app.service('LineChartService', function() {
 
         } else {
             $('#containerA').highcharts({
+                chart: {
+                    type: 'spline',
+                    height: 400,
+                    events: {
+                        beforePrint: function() {
+                            this.oldhasUserSize = this.hasUserSize;
+                            this.resetParams = [this.chartWidth, this.chartHeight, false];
+                            this.setSize(600, 400, false);
+                        },
+                        afterPrint: function() {
+                            this.setSize.apply(this, this.resetParams);
+                            this.hasUserSize = this.oldhasUserSize;
+                        }
+                    }
+                },
                 title: {
                     text: 'Portfolio Performance 1991-2016',
-                    margin: 30,
-                    x: -20 //center
+                     margin: 30,
                 },
                 xAxis: {
                     categories: dateArray
@@ -153,6 +181,21 @@ app.service('LineChartService', function() {
             });
 
         }
+        $(window).resize(function() {
+            /*if($(window).width()>400){
+                width=582;
+                height=378;
+            }else{
+                width=288;
+                height=450;                
+            }
+            height = $(window).height();
+            width = $(window).width();
+            $("#container").highcharts().setSize(width, height, doAnimation = true);
+            $("#containerA").highcharts().setSize(width, height, doAnimation = true);
+            $("#container").highcharts().reflow();
+            $("#containerA").highcharts().reflow();*/
+        });
 
     }
 });
