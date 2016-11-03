@@ -106,19 +106,23 @@
                 <div class="row result-head">
                     <h3 class="results-title">Your Results</h3>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
+                <div class="row result-div">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="row chart-buttons-row" print-remove>
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <button class="btn btn-primary" id="bar-chart" ng-click="chartOneOpen = true" title="bar chart description" ng-disabled="chartOneOpen">Single Asset Performance</button>
-                                <button class="btn btn-primary" id="area-chart" ng-click="chartOneOpen = false" title="pie chart description" ng-disabled="!chartOneOpen">Portfolio Performance</button>
+                                <button class="btn btn-primary" id="bar-chart" ng-click="chartOneOpen = true" title="bar chart description"   ng-disabled="chartOneOpen">Sp</button>
+                                <button class="btn btn-primary" id="area-chart" ng-click="chartOneOpen = false" title="pie chart description" ng-disabled="!chartOneOpen">Pp</button>
                                 <button class="btn btn-primary print-dup print-doc" print-remove style="float:right">
                                     Print Result
                                 </button>
                             </div>
                         </div>
-                        <div id="container" style="padding-top:15px;padding-bottom:10px;" ></div>
-                        <div id="containerA" style="padding-top:15px;padding-bottom:10px;display:none;"></div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12" id="chartBox">
+                                <div id="container" ng-show="chartOneOpen" style="padding-top:15px;padding-bottom:10px;"></div>
+                                <div id="containerA" ng-hide="chartOneOpen" style="padding-top:15px;padding-bottom:10px;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row disclaimer">
@@ -240,7 +244,6 @@
     <script src="js/StackBlur.js" type="text/javascript"></script>
     <script src="js/canvg.min.js" type="text/javascript"></script>
     <script src="js/PdfMaker.js" type="text/javascript"></script>
-
 </body>
 
 </html>

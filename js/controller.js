@@ -419,7 +419,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
         }
     });
 
-    document.getElementById("bar-chart").addEventListener("click", function() {
+/*    document.getElementById("bar-chart").addEventListener("click", function() {
         $scope.chartOneOpen = true;
         document.getElementById("containerA").style.display = "none";
         document.getElementById("container").style.display = "block";
@@ -430,7 +430,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
         document.getElementById("container").style.display = "none";
         document.getElementById("containerA").style.display = "block";
         // document.getElementById("containerA").style.width = "582px";
-    });
+    });*/
 
     $(".print-doc").on("click", printBothCharts);
 

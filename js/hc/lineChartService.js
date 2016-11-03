@@ -154,5 +154,14 @@ app.service('LineChartService', function() {
 
         }
 
+
+        $(window).resize(function() {
+            height = $(window).height();
+            width = $(window).width();
+            $("#container").highcharts().setSize(width, height, doAnimation = true);
+            $("#containerA").highcharts().setSize(width, height, doAnimation = true);
+        });
+
+
     }
 });
