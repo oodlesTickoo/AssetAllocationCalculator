@@ -382,12 +382,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
                 dateArray[j] = 1991 + j;
             }
 
-            console.log("bondsArray", bondsArray);
+/*            console.log("bondsArray", bondsArray);
             console.log("yearArray", yearArray);
             console.log("porfolioArray", porfolioArray);
             console.log("resultArray", resultArray);
             console.log("investmentsArray", investmentsArray);
-            console.log("investmentsAndBondsArray", investmentsAndBondsArray);
+            console.log("investmentsAndBondsArray", investmentsAndBondsArray);*/
 
             LineChartService.createChart(dateArray, resultArray, true);
             LineChartService.createChart(dateArray, resultArray, false);
