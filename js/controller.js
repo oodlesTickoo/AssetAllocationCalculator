@@ -420,35 +420,56 @@ app.controller("TTRController", ['$scope', '$timeout', 'PdfMaker', 'LineChartSer
     });
 
     document.getElementById("bar-chart").addEventListener("click", function() {
+
         $scope.chartOneOpen = true;
         document.getElementById("containerA").style.display = "none";
         document.getElementById("container").style.display = "block";
+        $("#containerA").highcharts().reflow();
+        
+        $("#container").highcharts().reflow();
     });
 
     document.getElementById("area-chart").addEventListener("click", function() {
         $scope.chartOneOpen = false;
         document.getElementById("container").style.display = "none";
         document.getElementById("containerA").style.display = "block";
-        // document.getElementById("containerA").style.width = "582px";
+
+        $("#container").highcharts().reflow();
+
+        $("#containerA").highcharts().reflow();
     });
 
     $(".print-doc").on("click", printBothCharts);
 
     function printBothCharts() {
         if ($scope.forms.ttrForm.$valid) {
+            var printUpdate = function() {
+                $('#container').highcharts().reflow();
+                $("#containerA").highcharts().reflow();
+            };
 
             if ($scope.chartOneOpen) {
-/*                height = $(window).height();
-                width = 582px;
-                $("#container").highcharts().setSize(width, height, doAnimation = true);
-                $("#containerA").highcharts().setSize(width, height, doAnimation = true);*/
                 document.getElementById("containerA").style.display = "block";
+
+                if (window.matchMedia) {
+                    var mediaQueryList = window.matchMedia('print');
+                    mediaQueryList.addListener(function(mql) {
+                        printUpdate();
+                    });
+                }
                 window.print();
                 setTimeout(function() {
                     document.getElementById("containerA").style.display = "none";
                 }, 100);
             } else {
                 document.getElementById("container").style.display = "block";
+
+                if (window.matchMedia) {
+                    var mediaQueryList = window.matchMedia('print');
+                    mediaQueryList.addListener(function(mql) {
+                        printUpdate();
+                    });
+                }
                 window.print();
                 setTimeout(function() {
                     document.getElementById("container").style.display = "none";
