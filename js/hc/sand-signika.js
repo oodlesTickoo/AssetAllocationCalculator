@@ -116,7 +116,14 @@ Highcharts.theme = {
 		trackBorderColor: '#C0C0C8'
 	},
 
-	background2: '#E0E0E8'
+	background2: '#E0E0E8',
+	func: function(chart) {
+                $timeout(function() {
+                    chart.reflow();
+                    //The below is an event that will trigger all instances of charts to reflow
+                    //$scope.$broadcast('highchartsng.reflow');
+                }, 0);
+            }
 
 };
 

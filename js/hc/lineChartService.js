@@ -44,7 +44,10 @@ app.service('LineChartService', function() {
                     borderWidth: 0,
                     x: 12
                 },
-
+                chart: {
+                    renderTo: 'container',
+                    animation: true
+                },
                 series: [{
                     name: 'Australian Shares',
                     data: resultArray[0]
@@ -119,6 +122,10 @@ app.service('LineChartService', function() {
                     borderWidth: 0,
                     x: 12
                 },
+                chart: {
+                    renderTo: 'containerA',
+                    animation: true
+                },
                 series: [{
                     name: 'SMSI Conservative',
                     data: resultArray[9]
@@ -156,11 +163,26 @@ app.service('LineChartService', function() {
 
 
         $(window).resize(function() {
-            height = $(window).height();
-            width = $(window).width();
-            $("#container").highcharts().setSize(width, height, doAnimation = true);
-            $("#containerA").highcharts().setSize(width, height, doAnimation = true);
+            if ($(window).width() > 400) {
+                width = 582;
+                height = 378;
+            } else {
+                width = 288;
+                height = 450;
+            }
+            /*            $("#container").highcharts().setSize(width, height, doAnimation = true);
+                        $("#containerA").highcharts().setSize(width, height, doAnimation = true);
+            $("#container").highcharts().reflow();
+            $("#containerA").highcharts().reflow();*/
         });
+
+        /*chart.reflowNow = function() {
+            this.containerHeight = this.options.chart.height || window.window.HighchartsAdapter.adapterRun(this.renderTo, 'height');
+            this.containerWidth = this.options.chart.width || window.window.HighchartsAdapter.adapterRun(this.renderTo, 'width');
+            this.setSize(this.containerWidth, this.containerHeight, false);
+            this.hasUserSize = null;
+        }*/
+
 
 
     }
