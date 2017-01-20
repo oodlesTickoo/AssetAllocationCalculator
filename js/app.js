@@ -1,1 +1,1 @@
-var app = angular.module("TTRApp",['AngularPrint','ui.bootstrap']);
+var app = angular.module("TTRApp",['AngularPrint','ui.bootstrap','AgeCalculatorService']);

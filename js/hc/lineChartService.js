@@ -148,35 +148,17 @@ app.service('LineChartService', function() {
                     x: 12
                 },
                 series: [{
-                    name: 'SMSI Conservative',
-                    data: resultArray[9]
+                    name: 'Portfolio balance of FC Conservative',
+                    data: resultArray[5]
                 }, {
-                    name: 'SMSI Moderate',
-                    data: resultArray[10]
+                    name: 'Portfolio balance of FC Balanced',
+                    data: resultArray[6]
                 }, {
-                    name: 'SMSI Balanced',
-                    data: resultArray[11]
+                    name: 'Portfolio balance of FC Growth',
+                    data: resultArray[7]
                 }, {
-                    name: 'SMSI Balanced Growth',
-                    data: resultArray[12]
-                }, {
-                    name: 'SMSI Growth',
-                    data: resultArray[13]
-                }, {
-                    name: 'ING Conservative',
-                    data: resultArray[14]
-                }, {
-                    name: 'ING Moderate',
-                    data: resultArray[15]
-                }, {
-                    name: 'ING Balanced',
-                    data: resultArray[16]
-                }, {
-                    name: 'ING Balanced Growth ',
-                    data: resultArray[17]
-                }, {
-                    name: 'ING Growth',
-                    data: resultArray[18]
+                    name: "Portfolio balance of investor's choice",
+                    data: resultArray[8]
                 }]
             });
 
