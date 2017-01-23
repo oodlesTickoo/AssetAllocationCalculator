@@ -820,7 +820,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
 
     $scope.calculate = function(isValid) {
 
-        if (isValid) {
+        if (isValid && !$scope.error1option && !$scope.error2option) {
 
             var investments1 = [5.9, 13.3, 9.9, 18.5, 5.7, 15.8, 26.6, 1.6, 15.3, 13.7, 8.8, -4.5, -1.1, 22.4, 24.7, 24.2, 30.3, -12.1, -22.1, 13.8, 12.2, -7, 20.7, 17.6, 5.7, 2];
             var investments2 = [-2, 7.1, 31.8, 0, 14.2, 6.7, 28.6, 42.2, 8.2, 23.8, -6, -23.5, -18.5, 19.4, 0.1, 19.9, 7.8, -21.3, -16.3, 5.2, 2.7, -0.5, 33.1, 20.4, 25.2, 0.4];
@@ -1043,7 +1043,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
 
     }
 
-    $scope.calculate(true);
+    $scope.calculate(true, false, false);
 
     document.getElementById("download").addEventListener("click", function() {
         if ($scope.forms.ttrForm.$valid) {

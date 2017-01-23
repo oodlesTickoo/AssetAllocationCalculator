@@ -808,7 +808,6 @@ float:right;
 
 .form-heading{
   font-family: "Roboto", Helvetica, Verdana, Arial, Sans-serif;
-  font-weight : 300;
   color : #444;
 }
 
@@ -1081,4 +1080,10 @@ input:-webkit-autofill {
 
 .error-row{
   color: red;
+}
+
+.alter-row,
+.initial-row{
+  font-size: 15px;
+    font-weight: bold!important;
 }

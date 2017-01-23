@@ -38,7 +38,7 @@
                             <span class="title-wrapper">Your Details</span>
                             <div class="otrp-clear"></div>
                         </div>
-                        <form name="forms.ttrForm" class="ttr-form" novalidate ng-submit="calculate(forms.ttrForm.$valid)">
+                        <form name="forms.ttrForm" class="ttr-form" novalidate ng-submit="calculate(forms.ttrForm.$valid, error1option, error2option)">
                             <div class="row ">
                                 <div class="col-xs-6">
                                     <div class="form-group">
@@ -130,9 +130,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row " ng-class="{optionDrop: (alterOption)}">
+                            <div class="row initial-row" ng-class="{optionDrop: (alterOption)}">
                                 <div class="col-xs-12 col-sm-12 form-heading">
-                                    Your initial asset allocation
+                                    Your initial asset allocation:
                                 </div>
                             </div>
                             <div class="row " ng-class="{optionDrop: (alterOption)}">
@@ -308,9 +308,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row " ng-class="{optionDrop: (!alterOption)}">
+                            <div class="row alter-row" ng-class="{optionDrop: (!alterOption)}">
                                 <div class="col-xs-12 col-sm-12 form-heading">
-                                    Your altered asset allocation
+                                    Your altered asset allocation:
                                 </div>
                             </div>
                             <div class="row " ng-class="{optionDrop: (!alterOption)}">
@@ -474,25 +474,6 @@
                                     The total of all shares should add up to 100 so please re-enter the values
                                 </div>
                             </div>
-                            <!-- Button trigger modal -->
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -538,6 +519,8 @@
                                     <li ng-show="(forms.ttrForm.email.$pristine || forms.ttrForm.email.$invalid)">Please provide a valid email address.</li>
                                     <li ng-show="(forms.ttrForm.mobile.$pristine || forms.ttrForm.mobile.$invalid)">Please provide a valid mobile number.</li>
                                     <li ng-show="forms.ttrForm.postalCode.$invalid">Please provide a valid 4-Digit postal code.</li>
+                                    <li ng-show="error1option">Please re-enter the values for initial asset allocation(The total of all shares should add up to 100)</li>
+                                    <li ng-show="error2option">Please re-enter the values for altered asset allocation(The total of all shares should add up to 100)</li>
                                 </ul>
                             </div>
                             <div class="modal-footer">
