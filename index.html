@@ -280,11 +280,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row " ng-class="{optionDrop: (!error1option)||(alterOption)}">
-                                <div class="col-xs-12 col-sm-12 form-heading">
-                                    The total of all shares should add up to 100 so please re-enter the values
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 form-heading">
                                     <div class="row">
@@ -463,14 +458,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row " ng-class="{optionDrop: (!error2option)||(!alterOption)}">
-                                <div class="col-xs-12 col-sm-12 form-heading">
-                                    The total of all shares should add up to 100 so please re-enter the values
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="col-xs-12">
                                     <button print-remove class="btn btn-block btn-primary" type="submit" style="width:initial ; margin:0 auto; margin-bottom:10px;">Calculate Result</button>
+                                </div>
+                            </div>
+                            <div class="row " ng-class="{optionDrop: (!error1option)||(alterOption)}">
+                                <div class="col-xs-12 col-sm-12 form-heading error-row">
+                                    The total of all shares should add up to 100 so please re-enter the values
+                                </div>
+                            </div>
+                            <div class="row " ng-class="{optionDrop: (!error2option)||(!alterOption)}">
+                                <div class="col-xs-12 col-sm-12 form-heading error-row">
+                                    The total of all shares should add up to 100 so please re-enter the values
                                 </div>
                             </div>
                             <!-- Button trigger modal -->
