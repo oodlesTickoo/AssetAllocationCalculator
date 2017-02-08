@@ -1,5 +1,5 @@
 app.service('LineChartService', function() {
-    this.createChart = function(dateArray, resultArray, flag) {
+    this.createChart = function(dateArray, finalArray,resultArray, flag) {
         if (flag) {
             $('#container').highcharts({
                 chart: {
@@ -19,7 +19,7 @@ app.service('LineChartService', function() {
                 },
                 title: {
                     text: 'Single Asset Performance 1991-2016',
-                    margin:30
+                    margin: 30
                 },
                 xAxis: {
                     categories: dateArray
@@ -42,6 +42,7 @@ app.service('LineChartService', function() {
                 },
                 plotOptions: {
                     series: {
+                        borderWidth: 0,
                         marker: {
                             enabled: false
                         }
@@ -61,31 +62,31 @@ app.service('LineChartService', function() {
 
                 series: [{
                     name: 'Australian Shares',
-                    data: resultArray[0]
+                    data: finalArray[0]
                 }, {
                     name: 'International Shares',
-                    data: resultArray[1]
+                    data: finalArray[1]
                 }, {
                     name: 'International Shares (Hedged)',
-                    data: resultArray[2]
+                    data: finalArray[2]
                 }, {
                     name: 'US Shares',
-                    data: resultArray[3]
+                    data: finalArray[3]
                 }, {
                     name: 'Australian Bonds',
-                    data: resultArray[4]
+                    data: finalArray[4]
                 }, {
                     name: 'International Bonds (Hedged)',
-                    data: resultArray[5]
+                    data: finalArray[5]
                 }, {
                     name: 'Cash',
-                    data: resultArray[6]
+                    data: finalArray[6]
                 }, {
                     name: 'Australian Listed Property',
-                    data: resultArray[7]
+                    data: finalArray[7]
                 }, {
                     name: 'International Listed Property',
-                    data: resultArray[8]
+                    data: finalArray[8]
                 }]
             });
 
@@ -108,7 +109,7 @@ app.service('LineChartService', function() {
                 },
                 title: {
                     text: 'Portfolio Performance 1991-2016',
-                     margin: 30,
+                    margin: 30,
                 },
                 xAxis: {
                     categories: dateArray
@@ -131,6 +132,7 @@ app.service('LineChartService', function() {
                 },
                 plotOptions: {
                     series: {
+                        borderWidth: 0,
                         marker: {
                             enabled: false
                         }
@@ -148,17 +150,102 @@ app.service('LineChartService', function() {
                     x: 12
                 },
                 series: [{
+                    type: 'column',
                     name: 'Portfolio balance of FC Conservative',
                     data: resultArray[5]
                 }, {
+                    type: 'column',
                     name: 'Portfolio balance of FC Balanced',
                     data: resultArray[6]
                 }, {
+                    type: 'column',
                     name: 'Portfolio balance of FC Growth',
                     data: resultArray[7]
                 }, {
+                    type: 'column',
                     name: "Portfolio balance of investor's choice",
                     data: resultArray[8]
+                }, {
+                    type: 'line',
+                    name: 'Australian Shares',
+                    data: finalArray[0],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'International Shares',
+                    data: finalArray[1],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'International Shares (Hedged)',
+                    data: finalArray[2],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'US Shares',
+                    data: finalArray[3],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'Australian Bonds',
+                    data: finalArray[4],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'International Bonds (Hedged)',
+                    data: finalArray[5],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'Cash',
+                    data: finalArray[6],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'Australian Listed Property',
+                    data: finalArray[7],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'line',
+                    name: 'International Listed Property',
+                    data: finalArray[8],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
                 }]
             });
 

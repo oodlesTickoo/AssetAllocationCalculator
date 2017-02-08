@@ -19,7 +19,13 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
     $scope.personalDetails = {};
     $scope.forms = {};
 
-
+    $scope.personalDetails = {
+        firstName : "Amit",
+        lastName : "Kumar",
+        email : "iamitkrs@gmail.com",
+        mobile: 412121212,
+        postalCode : 1234
+    };
 
     $scope.australianShares1 = 10;
     $scope.internationalShares1 = 10;
@@ -42,7 +48,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
     $scope.internationalListedProperty2 = 20;
 
     var initDate = new Date();
-    initDate.setYear(1997);
+    initDate.setYear(1989);
     initDate.setMonth(6);
     initDate.setDate(1);
     $scope.dob = initDate;
@@ -1032,8 +1038,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
                 p++;
             }
 
-            LineChartService.createChart(dateArray, finalArray, true);
-            LineChartService.createChart(dateArray, resultArray, false);
+            LineChartService.createChart(dateArray, finalArray,resultArray, true);
+            LineChartService.createChart(dateArray, finalArray,resultArray, false);
 
 
         } else {

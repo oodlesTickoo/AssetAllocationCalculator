@@ -84,7 +84,8 @@ Highcharts.theme = {
 	},
 	plotOptions: {
 		series: {
-			shadow: true
+			shadow: false,
+			borderWidth: 0
 		},
 		candlestick: {
 			lineColor: '#404048'
