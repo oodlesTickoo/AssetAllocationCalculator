@@ -61,30 +61,39 @@ app.service('LineChartService', function() {
                 },
 
                 series: [{
+                    type: 'line',
                     name: 'Australian Shares',
                     data: finalArray[0]
                 }, {
+                    type: 'line',
                     name: 'International Shares',
                     data: finalArray[1]
                 }, {
+                    type: 'line',
                     name: 'International Shares (Hedged)',
                     data: finalArray[2]
                 }, {
+                    type: 'line',
                     name: 'US Shares',
                     data: finalArray[3]
                 }, {
+                    type: 'line',
                     name: 'Australian Bonds',
                     data: finalArray[4]
                 }, {
+                    type: 'line',
                     name: 'International Bonds (Hedged)',
                     data: finalArray[5]
                 }, {
+                    type: 'line',
                     name: 'Cash',
                     data: finalArray[6]
                 }, {
+                    type: 'line',
                     name: 'Australian Listed Property',
                     data: finalArray[7]
                 }, {
+                    type: 'line',
                     name: 'International Listed Property',
                     data: finalArray[8]
                 }]
