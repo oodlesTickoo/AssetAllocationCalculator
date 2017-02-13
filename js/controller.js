@@ -27,6 +27,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
         postalCode : 1234
     };
 
+    $scope.totalPercentageSelected=100;
+
     $scope.australianShares1 = 10;
     $scope.internationalShares1 = 10;
     $scope.internationalSharesHedged1 = 10;
@@ -37,6 +39,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
     $scope.australianListedProperty1 = 10;
     $scope.internationalListedProperty1 = 20;
 
+    $scope.asset1Total = $scope.australianShares1 + $scope.internationalShares1 +
+            $scope.internationalSharesHedged1 + $scope.usShares1 +
+            $scope.australianBonds1 + $scope.internationalBondsHedged1 +
+            $scope.cash1 + $scope.australianListedProperty1 +
+            $scope.internationalListedProperty1+"%";
+
     $scope.australianShares2 = 10;
     $scope.internationalShares2 = 10;
     $scope.internationalSharesHedged2 = 10;
@@ -46,6 +54,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
     $scope.cash2 = 10;
     $scope.australianListedProperty2 = 10;
     $scope.internationalListedProperty2 = 20;
+
+    $scope.asset2Total = $scope.australianShares2 + $scope.internationalShares2 +
+            $scope.internationalSharesHedged2 + $scope.usShares2 +
+            $scope.australianBonds2 + $scope.internationalBondsHedged2 +
+            $scope.cash2 + $scope.australianListedProperty2 +
+            $scope.internationalListedProperty2+"%";
 
     var initDate = new Date();
     initDate.setYear(1989);
@@ -233,14 +247,17 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
         var australianListedProperty1 = Number($scope.australianListedProperty1.replaceAll('%', ''));
         var internationalListedProperty1 = Number($scope.internationalListedProperty1.replaceAll('%', ''));
 
-        $scope.asset1Total = australianShares1 + internationalShares1 +
+        var tempp = australianShares1 + internationalShares1 +
             internationalSharesHedged1 + usShares1 +
             australianBonds1 + internationalBondsHedged1 +
             cash1 + australianListedProperty1 +
             internationalListedProperty1;
 
-        $scope.error1option = $scope.asset1Total == 100 ? false : true;
+        $scope.error1option = tempp == 100 ? false : true;
+        $scope.asset1Total=tempp+"%";
+
         $timeout(0);
+
 
     }
 
@@ -257,13 +274,15 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'PdfMake
         var internationalListedProperty2 = Number($scope.internationalListedProperty2.replaceAll('%', ''));
 
 
-        $scope.asset2Total = australianShares2 + internationalShares2 +
+        var tempp = australianShares2 + internationalShares2 +
             internationalSharesHedged2 + usShares2 +
             australianBonds2 + internationalBondsHedged2 +
             cash2 + australianListedProperty2 +
             internationalListedProperty2;
 
-        $scope.error2option = $scope.asset2Total == 100 ? false : true;
+        $scope.error2option = tempp == 100 ? false : true;
+        $scope.asset2Total=tempp+"%";
+
         $timeout(0);
     }
 

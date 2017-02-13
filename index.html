@@ -285,6 +285,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row " ng-class="{optionDrop: (alterOption)}">
+                                <div class="col-xs-12 col-sm-6 form-heading">
+                                    <Strong>Total Percentage Selected</Strong>
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="asset1TotalInput" name="asset1TotalInput" ng-model="asset1Total" disabled>
+                                            </div>
+                                        </div>  
+                                                                              
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 form-heading">
                                     <div class="row">
@@ -463,7 +476,19 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="row " ng-class="{optionDrop: (!alterOption)}">
+                                <div class="col-xs-12 col-sm-6 form-heading">
+                                    <Strong>Total Percentage Selected</Strong>
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="asset2TotalInput" name="asset2TotalInput" ng-model="asset2Total" disabled>
+                                            </div>
+                                        </div>    
+                                                                             
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <button print-remove class="btn btn-block btn-primary" type="submit" style="width:initial ; margin:0 auto; margin-bottom:10px;">Calculate Result</button>
